@@ -1,4 +1,5 @@
 // 1. Conectarse al enlace 
+
 const request = require("request")
 const url = "https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=perl&site=stackoverflow"
 
@@ -49,7 +50,18 @@ console.log("Titulo de la pregunta mas actual: " + response.body.items[response.
 console.log(" ")
 //5. Obtener la respuesta del owner que tenga una mayor reputación
 
-
+response.body.items.sort(function(a,b){
+    if(a.owner.reputation > b.owner.reputation){
+        return -1
+    }
+    if(a.owner.reputation < b.owner.reputation){
+        return 1
+    }
+    return 0        
+})
+console.log("5. Obtener la respuesta del owner que tenga una mayor reputación")
+console.log("Titulo de la pregunta con Owner con mayor reputacion: " + response.body.items[0].title)
+console.log("Reputation del Owner: " + response.body.items[0].owner.reputation)
 
 
 })
