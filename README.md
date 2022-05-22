@@ -1,4 +1,4 @@
-# Reto Node.js  XAL DIGITAL⌨
+# Reto Node.js  XAL DIGITAL
 
 En este reposotorio se encuentra la  parte dedicada a la programación.
 
