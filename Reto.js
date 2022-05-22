@@ -29,12 +29,27 @@ response.body.items.sort(function(a,b){
     return 0        
 })
 console.log("3. Obtener la respuesta con menor número de vistas")
-console.log("Titulo de la Respuesta con menor numero de vistas: " + response.body.items[0].title)
+console.log("Titulo de la Pregunta con menor numero de vistas: " + response.body.items[0].title)
 console.log("Vistas: " + response.body.items[0].view_count)
 console.log(" ")
 //4. Obtener la respuesta más vieja y más actual
+
+response.body.items.sort(function(a,b){
+    if(a.creation_date < b.creation_date){
+        return -1
+    }
+    if(a.creation_date > b.creation_date){
+        return 1
+    }
+    return 0        
+})
+console.log("4. Obtener la respuesta más vieja y más actual")
+console.log("Titulo de la pregunta mas vieja: " + response.body.items[0].title, "Fecha: " + new Date(response.body.items[0].creation_date*1000))
+console.log("Titulo de la pregunta mas actual: " + response.body.items[response.body.items.length-1].title, "Fecha: " + new Date(response.body.items[response.body.items.length-1].creation_date*1000))
+console.log(" ")
 //5. Obtener la respuesta del owner que tenga una mayor reputación
-//6. Imprimir en consola del punto 2 al 5
+
+
 
 
 })
